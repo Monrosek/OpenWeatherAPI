@@ -14,7 +14,6 @@ class PageViewModel: NSObject {
     var forecast:OpenWeather? {
         didSet {
           //  pageData.append("Temperature")
-
         }
     }
     
@@ -25,10 +24,9 @@ class PageViewModel: NSObject {
     init(_ forecast:OpenWeather) {
         self.forecast = forecast
         pageData.append("Temperature")
-        pageData.append("Clouds")
         pageData.append("Humidity")
+        pageData.append("Wind")
     }
-    
 }
 
 typealias PageControllerFunc = PageViewModel
@@ -49,22 +47,33 @@ extension PageControllerFunc: UIPageViewControllerDataSource {
             PageView.view.backgroundColor = UIColor.orange
             PageView.dataLabel?.text = String(format: "%.0f", temp * (9/5) - 459.67)
             PageView.cityLabel?.text = self.forecast?.name ?? ""
-
+            PageView.icon.image = #imageLiteral(resourceName: "temperature")
+            PageView.metricLabel.text = "℉"
             return PageView
-        case "Clouds":
+        case "Wind":
             let PageView = storyboard.instantiateViewController(withIdentifier: "PageView") as! PageView
             PageView.pageID = self.pageData[index]
-            PageView.view.backgroundColor = UIColor.blue
-           // let cloud = self.forecast?.clouds
-            PageView.dataLabel?.text = String(self.forecast?.clouds?.all ?? 0) + "%"
+            PageView.view.backgroundColor = UIColor(0x669999)
+            if let wind = self.forecast?.wind?.speed {
+                PageView.dataLabel?.text = String(Int(wind))
+            }
+            PageView.dataLabel.layer.zPosition = 5
+            PageView.icon.image = #imageLiteral(resourceName: "winds")
+            PageView.icon.layer.zPosition = -5
             PageView.cityLabel?.text = self.forecast?.name ?? ""
+            PageView.metricLabel.text = "MPH"
+
             return PageView
         case "Humidity":
             let PageView = storyboard.instantiateViewController(withIdentifier: "PageView") as! PageView
             PageView.pageID = self.pageData[index]
-            PageView.view.backgroundColor = UIColor.magenta
+            PageView.view.backgroundColor = UIColor(0x3399ff)
+            PageView.icon.image = #imageLiteral(resourceName: "humidity")
             PageView.dataLabel?.text = String(self.forecast?.main?.humidity ?? 0)
             PageView.cityLabel?.text = self.forecast?.name ?? ""
+            PageView.metricLabel.text = "%"
+
+            
             return PageView
         default: return nil
         }

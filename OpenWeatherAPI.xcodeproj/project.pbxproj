@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0420BD551FCC6D5B00DB0779 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420BD541FCC6D5B00DB0779 /* CoreDataHelper.swift */; };
 		042489B11FC4EEE2002C3B95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042489B01FC4EEE2002C3B95 /* AppDelegate.swift */; };
 		042489B61FC4EEE2002C3B95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 042489B41FC4EEE2002C3B95 /* Main.storyboard */; };
 		042489B91FC4EEE2002C3B95 /* OpenWeatherAPI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 042489B71FC4EEE2002C3B95 /* OpenWeatherAPI.xcdatamodeld */; };
@@ -18,13 +19,12 @@
 		042489CC1FC4F8B4002C3B95 /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042489CB1FC4F8B4002C3B95 /* PageView.swift */; };
 		042489D31FC4FF49002C3B95 /* OpenWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042489D21FC4FF49002C3B95 /* OpenWeather.swift */; };
 		042489D51FC5027C002C3B95 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042489D41FC5027C002C3B95 /* APIService.swift */; };
-		042489D71FC50288002C3B95 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042489D61FC50288002C3B95 /* Constants.swift */; };
 		042489D91FC50293002C3B95 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042489D81FC50293002C3B95 /* Enums.swift */; };
 		042489DB1FC5029D002C3B95 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042489DA1FC5029D002C3B95 /* Extensions.swift */; };
-		04AB703B1FC51F44006DBBEE /* loadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AB703A1FC51F44006DBBEE /* loadViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0420BD541FCC6D5B00DB0779 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		042489AD1FC4EEE2002C3B95 /* OpenWeatherAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenWeatherAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		042489B01FC4EEE2002C3B95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		042489B51FC4EEE2002C3B95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -38,10 +38,8 @@
 		042489CB1FC4F8B4002C3B95 /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
 		042489D21FC4FF49002C3B95 /* OpenWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeather.swift; sourceTree = "<group>"; };
 		042489D41FC5027C002C3B95 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
-		042489D61FC50288002C3B95 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		042489D81FC50293002C3B95 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		042489DA1FC5029D002C3B95 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		04AB703A1FC51F44006DBBEE /* loadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loadViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,9 +86,9 @@
 			isa = PBXGroup;
 			children = (
 				042489D41FC5027C002C3B95 /* APIService.swift */,
-				042489D61FC50288002C3B95 /* Constants.swift */,
 				042489D81FC50293002C3B95 /* Enums.swift */,
 				042489DA1FC5029D002C3B95 /* Extensions.swift */,
+				0420BD541FCC6D5B00DB0779 /* CoreDataHelper.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -110,7 +108,6 @@
 				042489C71FC4F16B002C3B95 /* PageViewController.swift */,
 				042489CB1FC4F8B4002C3B95 /* PageView.swift */,
 				042489C51FC4EF42002C3B95 /* LoginViewController.swift */,
-				04AB703A1FC51F44006DBBEE /* loadViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -212,12 +209,11 @@
 				042489CC1FC4F8B4002C3B95 /* PageView.swift in Sources */,
 				042489C61FC4EF42002C3B95 /* LoginViewController.swift in Sources */,
 				042489B91FC4EEE2002C3B95 /* OpenWeatherAPI.xcdatamodeld in Sources */,
+				0420BD551FCC6D5B00DB0779 /* CoreDataHelper.swift in Sources */,
 				042489B11FC4EEE2002C3B95 /* AppDelegate.swift in Sources */,
 				042489D51FC5027C002C3B95 /* APIService.swift in Sources */,
-				04AB703B1FC51F44006DBBEE /* loadViewController.swift in Sources */,
 				042489C81FC4F16B002C3B95 /* PageViewController.swift in Sources */,
 				042489DB1FC5029D002C3B95 /* Extensions.swift in Sources */,
-				042489D71FC50288002C3B95 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

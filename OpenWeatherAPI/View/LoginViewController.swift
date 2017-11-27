@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
@@ -25,20 +26,22 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let VC = segue.destination as? loadViewController else {return}
-        if let zip = Int(zipcode.text ?? "") {
-            VC.zip = zip
-        }
+       // guard let NC = segue.destination as? UINavigationController else {return}
+       // guard let VC = NC.ViewControllers.first as? RootViewController else {return}
+       
     }
  
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         if(textField.text?.count == 5) {
             zipcode.resignFirstResponder()
-            performSegue(withIdentifier: "load", sender: self)
+            if let zip = (Int(textField.text ?? "")) {
+                print("Zipcode: \(zip)")
+                UserDefaults.standard.set(zip, forKey: API.key)
+                performSegue(withIdentifier: "login", sender: self)
+            }
         }
         return true
-        
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {

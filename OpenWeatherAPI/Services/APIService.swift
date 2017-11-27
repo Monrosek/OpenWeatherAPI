@@ -25,6 +25,31 @@ struct API {
         self.zip = "zip=\(zip)"
     }
     
+    static func getWeatherModel(completionHandler:@escaping(PageViewModel?,Error?)->()){
+        guard let savedZip = UserDefaults.standard.string(forKey: API.key) else {return}
+        if let zipcode = Int(savedZip) {
+        guard let url = URL(string: API(zipcode).url) else {
+            completionHandler(nil, NetworkError.InvalidURL)
+            return
+        }
+        
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            guard error == nil else {
+                completionHandler(nil, error)
+                return
+            }
+            guard let data = data else {
+                completionHandler(nil, NetworkError.NoDataOnServer)
+                return
+            }
+            guard let forecast = OpenWeather(from: data) else {
+                completionHandler(nil, NetworkError.DataContainedNoObject)
+                return
+            }
+            completionHandler(PageViewModel(forecast), nil)
+        }.resume()
+      }
+    }
 
     static func getWeather(byZipcode zip: Int,completionHandler:@escaping(OpenWeather?,Error?)->()){
         guard let url = URL(string: API(zip).url) else {

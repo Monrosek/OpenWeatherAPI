@@ -9,6 +9,8 @@ import UIKit
 
 class PageView: UIViewController {
     
+    @IBOutlet weak var metricLabel: UILabel!
+    @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var dataLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
